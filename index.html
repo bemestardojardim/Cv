@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Executivo - Brian Michael Silva</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --text: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header com foto */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--secondary);
+            margin-right: 30px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .name {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+        }
+        
+        .documentation {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        /* Conteúdo principal */
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+        
+        .left-column {
+            flex: 7;
+            padding: 30px;
+        }
+        
+        .right-column {
+            flex: 3;
+            background: #f8f9fa;
+            padding: 30px;
+            border-left: 1px solid #eee;
+        }
+        
+        /* Seções */
+        section {
+            margin-bottom: 25px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Objetivo */
+        .objective {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Experiência */
+        .job {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .job:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .job-details {
+            margin-left: 15px;
+        }
+        
+        .job-details li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .job-details li:before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Habilidades */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background-color: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Educação */
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .license-info {
+            background-color: #fff3cd;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .doc-info {
+            background-color: #e8f4fc;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Disponibilidade */
+        .availability {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        /* Botões de ação */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .right-column {
+                border-left: none;
+                border-top: 1px solid #eee;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .photo-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+            
+            .btn {
+                display: none;
+            }
+        }
+        
+        .language-info {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="photo-container">
+                <img src="brian-silva.jpg" alt="Brian Silva" class="profile-photo">
+            </div>
+            <div class="header-info">
+                <h1 class="name">BRIAN MICHAEL SILVA</h1>
+                <div class="title">Profissional Operacional Multifuncional</div>
+                <p>São Tiago – MG – Brasil | Povoado Cajenga D909 CX 1 – Zona Rural</p>
+                <p>Nacionalidade: Argentina | Idade: 32 anos (nascido em 13/09/1993)</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>(35) 99713-2339</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>michaellezzana@gmail.com</span>
+                    </div>
+                </div>
+                
+                <div class="documentation">
+                    <div class="contact-item">
+                        <i class="fas fa-id-card"></i>
+                        <span><strong>CPF:</strong> 065.218.196-15</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <section class="objective">
+                    <h2><i class="fas fa-bullseye"></i> OBJETIVO PROFISSIONAL</h2>
+                    <p>Ingressar na área operacional de uma empresa de mineração, iniciando em atividades como lavagem, limpeza, apoio geral e tarefas diversas. Disponível para aprender novas funções e crescer dentro da empresa, contribuindo com minha experiência em múltiplas áreas operacionais.</p>
+                </section>
+                
+                <section class="experience">
+                    <h2><i class="fas fa-briefcase"></i> EXPERIÊNCIA PROFISSIONAL</h2>
+                    
+                    <div class="job">
+                        <div class="job-title">Auxiliar de Construção Civil / Albañil</div>
+                        <ul class="job-details">
+                            <li>Apoio geral em obras e construções</li>
+                            <li>Mistura e transporte de materiais</li>
+                            <li>Preparação de massas, reboco e superfícies</li>
+                            <li>Instalação e manutenção de Durlock (drywall)</li>
+                            <li>Excelente desempenho como ajudante de obra</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Pintor Profissional</div>
+                        <ul class="job-details">
+                            <li>Pintura interna e externa de alta qualidade</li>
+                            <li>Acabamento, correção de superfícies e aplicação de diferentes técnicas</li>
+                            <li>Conhecimento em diversos tipos de tintas e texturas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Lavador de Veículos Leves e Pesados</div>
+                        <ul class="job-details">
+                            <li>Lavagem completa de veículos leves e pesados</li>
+                            <li>Limpeza interna e externa detalhada</li>
+                            <li>Cuidados com detalhamento e organização da área de trabalho</li>
+                            <li>Atendimento ao cliente com excelência</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="skills">
+                    <h2><i class="fas fa-tools"></i> HABILIDADES TÉCNICAS</h2>
+                    <div class="skills-container">
+                        <div class="skill">Trabalho Pesado</div>
+                        <div class="skill">Construção Civil</div>
+                        <div class="skill">Pintura Profissional</div>
+                        <div class="skill">Drywall/Durlock</div>
+                        <div class="skill">Lavagem de Veículos</div>
+                        <div class="skill">Organização</div>
+                        <div class="skill">Trabalho em Equipe</div>
+                        <div class="skill">Responsabilidade</div>
+                        <div class="skill">Aprendizado Rápido</div>
+                        <div class="skill">Comunicação</div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="right-column">
+                <section class="summary">
+                    <h2><i class="fas fa-user"></i> PERFIL</h2>
+                    <p>Profissional trabalhador, responsável, acostumado a atividades pesadas e manuais. Experiência variada em construção, pintura, drywall (Durlock) e lavagem de veículos de diferentes portes. Facilidade para aprender, seguir instruções e colaborar com a equipe.</p>
+                </section>
+                
+                <section class="education">
+                    <h2><i class="fas fa-graduation-cap"></i> FORMAÇÃO E DOCUMENTOS</h2>
+                    <div class="education-item">
+                        <div class="education-title">Ensino Médio</div>
+                        <p>(Completo)</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">Nacionalidade</div>
+                        <p>Argentina – Estrangeiro residente no Brasil</p>
+                        <div class="language-info">Fluente em Espanhol e Português</div>
+                    </div>
+                    
+                    <div class="doc-info">
+                        <p><strong>Documentação Brasileira:</strong></p>
+                        <p><i class="fas fa-id-card"></i> <strong>CPF:</strong> 065.218.196-15</p>
+                        <p>Documento regularizado e válido</p>
+                    </div>
+                    
+                    <div class="license-info">
+                        <p><strong>Habilitação:</strong> Possuía carteira de motorista na Argentina (documento extraviado)</p>
+                        <p>Experiência em condução de veículos</p>
+                    </div>
+                </section>
+                
+                <section class="availability">
+                    <h2><i class="fas fa-calendar-check"></i> DISPONIBILIDADE</h2>
+                    <p><strong>Imediata</strong></p>
+                    <p>Disponível para turnos, horas extras e viagens curtas caso necessário.</p>
+                </section>
+                
+                <section class="qualities">
+                    <h2><i class="fas fa-star"></i> QUALIDADES</h2>
+                    <ul class="job-details">
+                        <li>Comprometido com prazos e qualidade</li>
+                        <li>Boa capacidade de adaptação</li>
+                        <li>Proativo e dedicado</li>
+                        <li>Ótimo relacionamento interpessoal</li>
+                        <li>Pontualidade e assiduidade</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="window.print()">
+                <i class="fas fa-print"></i> Imprimir Currículo
+            </button>
+            <button class="btn btn-secondary" id="downloadPdf">
+                <i class="fas fa-file-pdf"></i> Salvar como PDF
+            </button>
+        </div>
+        
+        <footer>
+            <p>Currículo Profissional - Brian Michael Silva | CPF: 065.218.196-15 | Atualizado em <span id="currentDate"></span></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Adiciona a data atual
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('pt-BR', options);
+            
+            document.getElementById('currentDate').textContent = dateString;
+            
+            // Simulação de download PDF
+            document.getElementById('downloadPdf').addEventListener('click', function() {
+                alert('Para salvar como PDF, use a função "Salvar como PDF" na janela de impressão do navegador.');
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>
