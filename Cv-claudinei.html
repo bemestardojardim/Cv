@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Executivo - Claudinei Mariano da Silva</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --text: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header com foto */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--secondary);
+            margin-right: 30px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .name {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item i {
+            color: var(--secondary);
+        }
+        
+        .documentation {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        /* Conteúdo principal */
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+        
+        .left-column {
+            flex: 7;
+            padding: 30px;
+        }
+        
+        .right-column {
+            flex: 3;
+            background: #f8f9fa;
+            padding: 30px;
+            border-left: 1px solid #eee;
+        }
+        
+        /* Seções */
+        section {
+            margin-bottom: 25px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Objetivo */
+        .objective {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Experiência */
+        .job {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .job:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .job-company {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .job-period {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .job-details {
+            margin-left: 15px;
+        }
+        
+        .job-details li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .job-details li:before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Habilidades */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill {
+            background-color: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Educação */
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .license-info {
+            background-color: #fff3cd;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .doc-info {
+            background-color: #e8f4fc;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Disponibilidade */
+        .availability {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        /* Botões de ação */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .right-column {
+                border-left: none;
+                border-top: 1px solid #eee;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .photo-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+            
+            .btn {
+                display: none;
+            }
+        }
+        
+        .language-info {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="photo-container">
+                <img src="claudinei-silva.jpg" alt="Claudinei Silva" class="profile-photo">
+            </div>
+            <div class="header-info">
+                <h1 class="name">CLAUDINEI MARIANO DA SILVA</h1>
+                <div class="title">Motorista Profissional e Operacional</div>
+                <p>São Tiago – MG – Brasil | Povoado Cajenga D909 CX 1 – Zona Rural</p>
+                <p>Nacionalidade: Brasileiro | Idade: 50 anos (nascido em 06/02/1974)</p>
+                <p>Natural de: Lavras/MG</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>(35) 99887-0273</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>MarianoClaudinei614@gmail.com</span>
+                    </div>
+                </div>
+                
+                <div class="documentation">
+                    <div class="contact-item">
+                        <i class="fas fa-id-card"></i>
+                        <span><strong>CPF:</strong> 976.865.496-15</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-id-card"></i>
+                        <span><strong>RG:</strong> M7510877 SSP/MG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <section class="objective">
+                    <h2><i class="fas fa-bullseye"></i> OBJETIVO PROFISSIONAL</h2>
+                    <p>Ingressar na área operacional de uma empresa de mineração, utilizando minha vasta experiência como motorista profissional e conhecimentos em atividades operacionais diversas. Disponível para atuar também em outras funções operacionais conforme necessidade da empresa.</p>
+                </section>
+                
+                <section class="experience">
+                    <h2><i class="fas fa-briefcase"></i> EXPERIÊNCIA PROFISSIONAL</h2>
+                    
+                    <div class="job">
+                        <div class="job-title">Motorista Carreta</div>
+                        <div class="job-company">TKX Log Ltda – Lavras/MG</div>
+                        <div class="job-period">07/2025 – 08/2025 | Salário: R$ 2.903,78</div>
+                        <ul class="job-details">
+                            <li>Transporte de cargas em carretas</li>
+                            <li>Planejamento de rotas e cumprimento de prazos</li>
+                            <li>Manutenção preventiva do veículo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Motorista de Carreta</div>
+                        <div class="job-company">Dcastro Locações e Transportes Ltda – Contagem/MG</div>
+                        <div class="job-period">12/2024 – 01/2025 | Salário: R$ 2.664,02</div>
+                        <ul class="job-details">
+                            <li>Operação de veículos pesados</li>
+                            <li>Transporte seguro de mercadorias</li>
+                            <li>Documentação de carga e rotas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Servente de Obras</div>
+                        <div class="job-company">Hton Engenharia Ltda – Belo Horizonte/MG</div>
+                        <div class="job-period">02/2024 – 05/2024 | Salário: R$ 1.485,00</div>
+                        <ul class="job-details">
+                            <li>Apoio geral em obras civis</li>
+                            <li>Preparação de materiais e áreas de trabalho</li>
+                            <li>Execução de serviços auxiliares na construção</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Motorista de Carreta</div>
+                        <div class="job-company">Expresso Log Transporte e Logística Ltda – Lavras/MG</div>
+                        <div class="job-period">06/2023 – 09/2023 | Salário: R$ 2.507,78</div>
+                        <ul class="job-details">
+                            <li>Transporte rodoviário de cargas</li>
+                            <li>Operação de carretas e veículos pesados</li>
+                            <li>Cumprimento de normas de segurança</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Motorista Carreteiro</div>
+                        <div class="job-company">Transportes VJ Ltda – Lavras/MG</div>
+                        <div class="job-period">04/2023 – 06/2023 | Salário: R$ 2.365,83</div>
+                        <ul class="job-details">
+                            <li>Condução de veículos de grande porte</li>
+                            <li>Transporte intermunicipal e interestadual</li>
+                            <li>Controle de documentação de transporte</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Motorista de Carreta</div>
+                        <div class="job-company">Expresso Log Transporte e Logística Ltda – Lavras/MG</div>
+                        <div class="job-period">12/2022 – 03/2023 | Salário: R$ 2.365,83</div>
+                        <ul class="job-details">
+                            <li>Operação de carretas para transporte de carga</li>
+                            <li>Manutenção básica do veículo</li>
+                            <li>Entrega de mercadorias com segurança</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Motorista de Carreta</div>
+                        <div class="job-company">Transportadora Torres Ltda – Lavras/MG</div>
+                        <div class="job-period">09/2022 – 12/2022 | Salário: R$ 2.365,83</div>
+                        <ul class="job-details">
+                            <li>Transporte de cargas em geral</li>
+                            <li>Planejamento logístico de entregas</li>
+                            <li>Cumprimento de horários e prazos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Motorista Carreteiro</div>
+                        <div class="job-company">Mercantil Transporte Rodoviário de Cargas Ltda – Lavras/MG</div>
+                        <div class="job-period">04/2021 – 05/2021 | Salário: R$ 1.952,77</div>
+                        <ul class="job-details">
+                            <li>Condução de veículos pesados</li>
+                            <li>Transporte rodoviário de longa distância</li>
+                            <li>Controle de carga e descarga</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-title">Enfermeiro</div>
+                        <div class="job-company">Daniel Carlota Lopes Ltda – Perdões/MG</div>
+                        <div class="job-period">02/2020 – 05/2020 | Salário: R$ 1.953,00</div>
+                        <ul class="job-details">
+                            <li>Cuidados de enfermagem a pacientes</li>
+                            <li>Administração de medicamentos</li>
+                            <li>Acompanhamento do estado de saúde</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="skills">
+                    <h2><i class="fas fa-tools"></i> HABILIDADES TÉCNICAS</h2>
+                    <div class="skills-container">
+                        <div class="skill">Direção de Carretas</div>
+                        <div class="skill">Transporte Rodoviário</div>
+                        <div class="skill">Logística</div>
+                        <div class="skill">Construção Civil</div>
+                        <div class="skill">Enfermagem</div>
+                        <div class="skill">Planejamento de Rotas</div>
+                        <div class="skill">Manutenção de Veículos</div>
+                        <div class="skill">Trabalho em Equipe</div>
+                        <div class="skill">Responsabilidade</div>
+                        <div class="skill">Adaptabilidade</div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="right-column">
+                <section class="summary">
+                    <h2><i class="fas fa-user"></i> PERFIL</h2>
+                    <p>Profissional experiente com vasta trajetória como motorista de carretas e conhecimentos em construção civil e enfermagem. Responsável, pontual e com excelente capacidade de adaptação a diferentes ambientes de trabalho.</p>
+                </section>
+                
+                <section class="education">
+                    <h2><i class="fas fa-graduation-cap"></i> FORMAÇÃO E DOCUMENTOS</h2>
+                    <div class="education-item">
+                        <div class="education-title">Ensino Fundamental</div>
+                        <p>4ª Série Completa</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">Nacionalidade</div>
+                        <p>Brasileiro</p>
+                    </div>
+                    
+                    <div class="doc-info">
+                        <p><strong>Documentação:</strong></p>
+                        <p><i class="fas fa-id-card"></i> <strong>CPF:</strong> 976.865.496-15</p>
+                        <p><i class="fas fa-id-card"></i> <strong>RG:</strong> M7510877 SSP/MG</p>
+                        <p>Documentos regularizados e válidos</p>
+                    </div>
+                    
+                    <div class="license-info">
+                        <p><strong>Habilitação:</strong> CNH Categoria E (Carreta)</p>
+                        <p><strong>Nº CNH:</strong> 02233029760</p>
+                        <p><strong>1ª Habilitação:</strong> 21/07/1994</p>
+                        <p><strong>Validade:</strong> 30/03/2033</p>
+                        <p><strong>EAR:</strong> Sim (Exerce Atividade Remunerada)</p>
+                        <p>Experiência comprovada em condução de veículos pesados</p>
+                    </div>
+                </section>
+                
+                <section class="availability">
+                    <h2><i class="fas fa-calendar-check"></i> DISPONIBILIDADE</h2>
+                    <p><strong>Imediata</strong></p>
+                    <p>Disponível para turnos, horas extras e viagens conforme necessário.</p>
+                </section>
+                
+                <section class="qualities">
+                    <h2><i class="fas fa-star"></i> QUALIDADES</h2>
+                    <ul class="job-details">
+                        <li>Responsabilidade no cumprimento de prazos</li>
+                        <li>Capacidade de adaptação a diferentes funções</li>
+                        <li>Experiência em trabalho sob pressão</li>
+                        <li>Boa comunicação e relacionamento interpessoal</li>
+                        <li>Pontualidade e comprometimento</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="window.print()">
+                <i class="fas fa-print"></i> Imprimir Currículo
+            </button>
+            <button class="btn btn-secondary" id="downloadPdf">
+                <i class="fas fa-file-pdf"></i> Salvar como PDF
+            </button>
+        </div>
+        
+        <footer>
+            <p>Currículo Profissional - Claudinei Mariano da Silva | CPF: 976.865.496-15 | Atualizado em <span id="currentDate"></span></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Adiciona a data atual
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('pt-BR', options);
+            
+            document.getElementById('currentDate').textContent = dateString;
+            
+            // Simulação de download PDF
+            document.getElementById('downloadPdf').addEventListener('click', function() {
+                alert('Para salvar como PDF, use a função "Salvar como PDF" na janela de impressão do navegador.');
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>
